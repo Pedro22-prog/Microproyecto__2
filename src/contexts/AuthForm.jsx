@@ -20,6 +20,10 @@ const AuthForm = () => {
     }
   };
 
+  const toggleAuthMode = () => {
+    setIsSignUp(!isSignUp);
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <h2>{isSignUp ? 'Sign Up' : 'Sign In'}</h2>
@@ -36,8 +40,8 @@ const AuthForm = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button type="submit">{isSignUp ? 'Sign Up' : 'Sign In'}</button>
-      <button type="button" onClick={() => setIsSignUp(!isSignUp)}>
-        {isSignUp ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
+      <button type="button" onClick={toggleAuthMode}>
+        {isSignUp ? 'Already have an account? Sign In' : 'Don\'t have an account? Sign Up'}
       </button>
     </form>
   );

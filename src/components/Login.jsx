@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { app, auth } from './firebase';
+import { auth } from './firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
 const Login = (props) => {
@@ -71,10 +71,10 @@ const Login = (props) => {
         <button type="submit">
           {isRegister ? "Regístrate" : "Inicia sesión"}
         </button>
-        <button className="toggle-button" onClick={() => setIsRegister(!isRegister)}>
+        <button type="button" className="toggle-button" onClick={() => setIsRegister(!isRegister)}>
           {isRegister ? "Iniciar sesión" : "Registrarse"}
         </button>
-        <button onClick={logOut}>Cerrar sesión</button>
+        <button type="button" onClick={logOut}>Cerrar sesión</button>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
     </div>

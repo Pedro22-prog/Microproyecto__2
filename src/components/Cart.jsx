@@ -1,13 +1,38 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { CartContext } from './CartContext';
 
 const Cart = () => {
   const { cartItems, addItem, removeItem } = useContext(CartContext);
-  
-  const handleCheckout = () => {
-    // Add checkout logic here, e.g., redirect to payment page
-  };
 
+  const handleCheckout = () => {
+    // 1. Validar que el carrito no esté vacío
+    if (cartItems.length === 0) {
+      alert('Your cart is empty. Please add items to your cart before checking out.');
+      return;
+    }
+
+    // 2. Calcular el total de la compra
+    const total = cartItems.reduce((acc, item) => acc + item.price, 0);
+
+    // 3. Mostrar un resumen de la compra al usuario
+    const confirmation = window.confirm(`
+      Please confirm your order:
+      
+      Items: ${cartItems.map(item => item.name).join(', ')}
+      
+      Total: $${total.toFixed(2)}
+      
+      Click "OK" to proceed with payment.
+    `);
+
+    // 4. Si el usuario confirma, redirigir a la página de pago
+    if (confirmation) {
+      // Aquí puedes redirigir al usuario a la página de pago
+      // o llamar a una función que maneje el proceso de pago
+      window.alert('Thank you for your order! You will be redirected to the payment page.');
+      // Aquí puedes limpiar el carrito o realizar otras acciones necesarias
+    }
+  };
   return (
     <div>
       <h2>Shopping Cart</h2>

@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { auth, googleProvider, facebookProvider } from './firebase';
 import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { useState } from 'react';
 
 const Register = () => {
   const [email, setEmail] = useState('');
