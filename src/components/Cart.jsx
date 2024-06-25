@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { CartContext } from './CartContext';
 
 const Cart = () => {
-  const { cartItems, addItem, removeItem } = useContext(CartContext);
+  const { cartItems, removeItem } = useContext(CartContext);
 
   const handleCheckout = () => {
     // 1. Validar que el carrito no esté vacío

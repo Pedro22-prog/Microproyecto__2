@@ -37,7 +37,7 @@
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import AuthForm from './contexts/AuthForm';
-import Dashboard from './Components/Dashboard';
+import Dashboard from './Dashboard';
 
 const App = () => {
   return (
